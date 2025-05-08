@@ -1,0 +1,128 @@
+# 🧠 AI Code Review Bot — Project Setup Guide
+
+This guide will help you install and configure everything you need to build the AI Code Review Bot using Python, LLMs, FastAPI, Docker, and GitHub.
+
+---
+
+## ✅ Step 0: Prerequisites
+
+Make sure you have these installed:
+
+- Python 3.10+
+- Visual Studio Code (VS Code)
+- Git
+- GitHub account
+
+---
+
+## ✅ Step 1: Install Core Tools
+
+### 1. Install pipx (to isolate CLI tools)
+```bash
+pip install pipx
+pipx ensurepath
+
+
+### 2. Install Docker
+
+    Download Docker Desktop: https://www.docker.com/products/docker-desktop
+
+    After installing:
+
+docker --version
+
+
+## ✅ Step 2: Set Up Python Environment
+
+Create your project environment:
+
+mkdir ai-code-review-bot && cd ai-code-review-bot
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
+Install required packages:
+
+pip install fastapi uvicorn[standard] openai langchain huggingface_hub
+pip install tiktoken faiss-cpu python-dotenv httpx gitpython
+pip install chromadb  # Optional: for using Chroma vector store
+
+
+
+✅ Step 3: Setup LLM Access
+🧠 Option 1: Use OpenAI API
+
+pip install openai
+
+Create a .env file and add:
+
+OPENAI_API_KEY=your_openai_key_here
+
+
+ Option 2: Run a local model with text-generation-webui
+
+Instructions: https://github.com/oobabooga/text-generation-webui
+
+You can run models like Mistral, StarCoder2, CodeLlama locally and send requests to them.
+
+ Step 4: Install VS Code Extensions
+
+In VS Code, install:
+
+    Python
+
+    Pylance
+
+    Docker
+
+    GitHub Pull Requests and Issues
+
+    REST Client
+
+    Continue or CodeGPT (optional)
+
+    Dev Containers (optional)
+
+✅ Step 5: Dockerize the App
+
+Install Docker Compose:
+
+pip install docker-compose
+
+You'll create Dockerfile and docker-compose.yml later.
+✅ Step 6: GitHub Integration
+
+Generate a GitHub Personal Access Token with repo permissions:
+https://github.com/settings/tokens
+
+Install the GitHub API client:
+
+pip install PyGithub
+
+✅ Step 7: Optional Tools
+
+    REST Client (in VS Code) or Postman — for testing your FastAPI routes.
+
+    ngrok — to expose your local FastAPI server for GitHub webhooks:
+
+npm install -g ngrok
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HOW TO RUN
+
+in the base root of the project run
+uvicorn app.main:app --reload
