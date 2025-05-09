@@ -36,10 +36,15 @@ docker --version
 
 Create your project environment:
 
-mkdir ai-code-review-bot && cd ai-code-review-bot
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+Run the following command
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
+python -m venv .venv
+Linux  source .venv/bin/activate  
+Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+
+If there is no requirements.txt install them manually
 Install required packages:
 
 pip install fastapi uvicorn[standard] openai langchain huggingface_hub
