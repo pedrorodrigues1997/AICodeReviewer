@@ -130,4 +130,17 @@ npm install -g ngrok
 HOW TO RUN
 
 in the base root of the project run
+
+.venv\Scripts\activate
 uvicorn app.main:app --reload
+
+
+
+
+NGROK
+
+
+ngrok http 8000
+
+
+Use this to expose local port to public url for github
