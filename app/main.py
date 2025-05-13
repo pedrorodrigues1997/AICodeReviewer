@@ -19,10 +19,11 @@ async def github_webhook(request: Request):
     pull_request = data.get("pull_request", {})
 
 
-    if action == "opened" or "reopened":
+    if action in ["opened", "reopened"]:   
         pr_self_url = pull_request["_links"]["self"]["href"]
         files = get_pr_files(pr_self_url, github_api_key)
+       
+        await review_pull_request(files)
 
-    await review_pull_request(files)
     return {"status": "ok"}
     
